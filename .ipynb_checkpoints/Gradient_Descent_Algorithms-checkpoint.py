@@ -1,6 +1,6 @@
 import numpy as np
 
-def zscoreNormalize(m, n, feat):
+def zscoreNormalize(m, n):
     featNorm = np.zeros((m,n))
     featMean = np.mean(feat, axis=0)
     featStd = np.std(feat, axis=0)
@@ -51,7 +51,8 @@ def gradDescentLinear(feat, targ, alpha, iterations):
     n = feat.shape[1] # number of features
 
     # Normalize features for better convergence
-    featNorm = zscoreNormalize(m, n, feat)
+
+    featNorm = zscoreNormalize(m, n)
 
     # intiializing variables
     w = np.zeros(n) 
